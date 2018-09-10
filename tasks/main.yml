@@ -1,0 +1,15 @@
+---
+
+- name: ensure service folder is created
+  file:
+    dest: "{{ item.value.path }}"
+    state: directory
+  with_dict: "{{ services }}"
+
+- name: ensure data
+  file:
+    dest: "{{ item.value.data }}"
+    state: directory
+  with_dict: "{{ services }}"
+
+- name: ensure

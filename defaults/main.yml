@@ -1,0 +1,15 @@
+---
+# defaults file for ansible-role-user
+
+monitoring_domain: "monitoring.example.com"
+grafana_url: "https://{{ monitoring_domain }}"
+
+monitoring_admin_name: "admin"
+monitoring_admin_password: "changeme"
+
+monitoring_agent_name: "agent"
+monitoring_agent_password: "changeme"
+
+grafana_admin_name: "{{ monitoring_admin_name }}"
+grafana_admin_password: "{{ monitoring_admin_password }}"
+

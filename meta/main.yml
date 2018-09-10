@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: OneOffTech UG
+  description: "InfluxDB and Grafana as a monitoring solution"
+  license: MIT
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Debian
+    versions:
+      - buster
+      - stretch
+  galaxy_tags:
+  - docker
+  - docker-compose
+  - service
+  - systemd
+  - debian
+
+dependencies: []
