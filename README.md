@@ -8,13 +8,6 @@ reports once certain values exceed predefined thresholds.
 It consists of three seperate services: the Data collector, time series database
 and graphical frontend.
 
-Other monitoring solutions that were validated include Nagios and Netdata And
-Elasticsearch.
-
-Nagios is complex to set up and not performant enough to log and graph multiple
-metrics per minute. Netdata is not flexible enough, as it does not allow the
-easy export of gathered data or the definition of own metrics.
-
 ### Time series database
 The time series database is responsible for storing all collected metrics for
 each host, indexed by hostname, metric name, metric type and timestamp. We are
