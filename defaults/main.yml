@@ -13,3 +13,6 @@ monitoring_agent_password: "changeme"
 grafana_admin_name: "{{ monitoring_admin_name }}"
 grafana_admin_password: "{{ monitoring_admin_password }}"
 
+monitoring_path: "/home/user/deploy/monitoring"
+monitoring_data_path: "{{ monitoring_path }}/data"
+monitoring_conf_path: "{{ monitoring_path }}/conf"

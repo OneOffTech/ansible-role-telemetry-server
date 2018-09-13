@@ -2,14 +2,36 @@
 
 - name: ensure service folder is created
   file:
-    dest: "{{ item.value.path }}"
+    dest: "{{ monitoring_path }}"
     state: directory
-  with_dict: "{{ services }}"
 
-- name: ensure data
+- name: ensure mounted folders are created
   file:
-    dest: "{{ item.value.data }}"
+    dest: "{{ item }}"
     state: directory
-  with_dict: "{{ services }}"
+  with_items:
+    - "{{ monitoring_data_path }}"
+    - "{{ monitoring_conf_path }}"
 
-- name: ensure
+- name: ensure dockerfile is existant
+  template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ monitoring_path }}/docker-compose.yml"
+    notify:
+      - reload monitoring
+
+- name: ensure monitoring is registered as a system service
+  template:
+    src: "telemetry-server.service.j2"
+    dest: "/lib/systemd/system/telemetry-server.service"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload systemctl
+
+- name: ensure telemetry server is running and enabled at boot
+  service:
+    name: "telemetry-server.service"
+    enabled: yes
+    state: started

@@ -1,0 +1,11 @@
+---
+
+- name: reload systemctl
+  shell: systemctl daemon-reload
+  changed_when: False
+
+- name: reload monitoring
+  shell: "docker-compose up -d"
+  args:
+    chdir: "{{ monitoring_path }}"
+  changed_when: False
