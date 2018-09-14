@@ -54,6 +54,21 @@ drawing graphs, but it also deals with rights management by prodviding a login
 iterface. Also it offers the option to define Alarms on certain thresholds e.g.
 System Load or Hard disk usage.
 
+To set up the dashboard in Grafana, the InfluxDB database needs to be added first. On initial run Grafana will prompt you for a datasource. You can enter the following information:
+
+```
+Name: [Any]
+Default: true
+URL: http://influxdb:8086
+Access: Server
+
+Influx DB Database: telegraf
+Influx DB User: [monitoring_admin_name]
+Influx DB Password: [monitoring_admin_password]
+
+Min Time Interval: 10s
+```
+
 Dependencies
 ------------
 
